@@ -1,0 +1,345 @@
+SELECT User_Email FROM User;
+User_Email
+Admin@MenuPlanner.us.co
+Isha@MenuPlanner.us.co
+Roxie@MenuPlanner.us.co
+Scott@MenuPlanner.us.co
+Yan@MenuPlanner.us.co
+SELECT Ev_Name FROM Event;
+Ev_Name
+Brunch at Yans
+Company Launch Party
+Dessert at Scotts
+Dinner at Roxies
+Drinks at Ishas
+Test Event
+SELECT * FROM Event WHERE Ev_Name = "Dinner at Roxies";
+Ev_ID  |  Ev_Name  |  Ev_Date  |  User_ID  |  Ev_Guests  |  List_ID
+3  |  Dinner at Roxies  |  2018-08-21  |  3  |  4  |  3
+UPDATE Event SET Ev_Guests = "4", Ev_Date ="2018-08-21"
+WHERE Ev_Name = "Dinner at Roxies";
+INSERT INTO Event (Ev_ID, Ev_Name,Ev_Date,User_ID,Ev_Guests,List_ID)
+VALUES (99, "Test Event", "2018-04-24",1,30,1);
+DELETE FROM Event WHERE Ev_ID = 99;
+SELECT Rec_Name,Ev_Rec_Servings_Req
+FROM Menu,Recipe
+WHERE Menu.Rec_ID = Recipe.Rec_ID
+AND  Ev_ID = 2 ;
+Rec_Name  |  Ev_Rec_Servings_Req
+Quiche  |  4
+Pancakes  |  2
+SELECT Rec_Name FROM Recipe;
+Rec_Name
+Apple Pie
+Chocolate Cake
+Noodle Kugel
+Pancakes
+Quiche
+SELECT * FROM Recipe WHERE Rec_Name = "Apple Pie";
+Rec_ID  |  Rec_Name  |  Rec_Servings_Made  |  User_ID
+5  |  Apple Pie  |  6  |  5
+INSERT INTO Event (Ev_ID, Ev_Name,Ev_Date,User_ID,Ev_Guests,List_ID)
+VALUES (99, "Test Event", "2018-04-24",1,30,1);
+INSERT INTO Menu (Rec_ID, Ev_ID, Ev_Rec_Servings_Req)
+VALUES (1, 99, 16);
+DELETE FROM Menu WHERE Ev_ID =99 AND Rec_ID = 1;
+SELECT List_Name FROM List;
+List_Name
+Admin List
+Isha List
+Roxie List
+Scott List
+Yan List
+SELECT * FROM List
+ WHERE List_Name = "Yan List";
+List_ID  |  List_Name  |  User_ID
+2  |  Yan List  |  2
+INSERT INTO List (List_ID, List_Name, User_ID)
+VALUES (99,"Test List #1",1);
+DELETE FROM List WHERE List_ID=99;
+SELECT Ev_Name,Ev_Guests,Ev_Date FROM Event WHERE Event.List_ID = 1;
+Ev_Name  |  Ev_Guests  |  Ev_Date
+Company Launch Party  |  30  |  2018-04-24
+Test Event  |  30  |  2018-04-24
+UPDATE Event SET List_ID = 3 WHERE EV_ID = 4;
+UPDATE Event SET List_ID = NULL WHERE EV_ID = 2;
+DELETE FROM Recipe
+WHERE Rec_ID= 1;
+UPDATE Recipe SET Rec_Servings_Made = 72 WHERE Rec_ID = 2;
+SELECT Ing_Name FROM Ingredient;
+Ing_Name
+Allspice, Ground
+Almond extract
+Anise Seed, Whole
+Apple, Whole Fruit
+Apples, Golden Delicious
+Apples, Granny Smith
+Avocado, Whole
+Baking powder
+Baking soda
+Bananas, Sliced
+Basil, Sweet
+Basil, Whole Leaf
+Bay Leaf, Whole
+Bay Leaves
+Beans, Green
+Black Pepper
+Blueberries
+Bourbon
+Brisket, 1.4 inch fat
+Brisket, trimmed of fat
+Broccoli, Bunch, Whole
+Butter
+Caramel Sauce
+Caraway Seed, Whole
+Cardamom, Ground
+Carrots (Table-Medium)
+Carrots, Large
+Carrots, Whole, Baby
+Cayenne Pepper
+Celery
+Celery Salt
+Celery Seed, Whole
+Celery Stalks
+Chervil, Whole
+Chicken Stock
+Chicken, breasts
+Chile Flakes, Green
+Chile Flakes, Red
+Chile Pods, California and New Mexico
+Chile Pods, Pasilla
+Chile Pods, de Arbol
+Chile Powder
+Chili Garlic Sauce (e.g., Siracha)
+Chinese Five Spices
+Chives, 6"Lengths
+Chives, Chopped
+Chocolate , Dark
+Chocolate, Semi-sweet, chips
+Cilantro
+Cilantro
+Cinnamon
+Cinnamon, Ground
+Cinnamon, Whole Sticks, 5"long
+Cloves, Ground
+Cloves, Whole
+Cocoa Powder, Dutch Processed (Alkali)
+Cocoa Powder, Natural, Unsweetened
+Coffee (brewed)
+Coriander Seed, Ground
+Coriander Seed, Whole
+Cranberries, Dried
+Cranberries, Fresh
+Cranberries, Whole
+Cream of Tartar
+Cumin Seed, Whole
+Cumin, Ground
+Curry Powder
+Dill Seed, Whole
+Dill Weed, Dry
+Dill Weed, Fresh
+Eggs, Large, Whites only
+Eggs, Large, Whole (in shell)
+Eggs, Large, Yolks only
+Fennel Seed, Whole
+Fenugreek Seed, Whole
+Flour, All Purpose
+Flour, Almond
+Flour, Bread
+Flour, White Rice
+Flour, Whole Wheat
+Garlic Powder
+Garlic Salt
+Garlic, Granulated
+Garlic, chopped
+Garlic, whole cloves
+Ginger, Ground
+Ginger, fresh
+Ground Fennel
+Ground Nutmeg
+Honey
+Instant Expresso
+Lemon - Zest
+Lemon Extract
+Lemon Juice
+Lemon curd
+Lemons
+Limes 2 inch Diameter
+Mace, Ground
+Marjoram
+Marjoram, Ground
+Marjoram, Whole Leaf
+Milk
+Mint
+Mint, Whole Leaf
+Mozzarella Cheese
+Mushrooms, White, Whole
+Mustard Seed, Whole
+Mustard, Dijon
+Mustard, Ground (powder)
+Noodles, wide
+Nutmeg, Ground
+Oil, Olive
+Oil, Vegetable
+Oil, toasted sesame
+Onion powder
+Onion, chopped or diced
+Onion, whole
+Orange - Juice
+Orange, Navel
+Orange, large
+Oregano
+Oregano, Ground
+Oregano, Whole Leaf
+Paprika, Ground
+Parsley Flakes, Whole
+Parsley, Curly
+Parsley, Italian
+Pecans
+Pepper, Black Whole
+Pepper, Black, Coarse-Cut
+Pepper, Black, Cracked
+Pepper, Black, Table Grind
+Pepper, Red Crushed (flakes)
+Pepper, Szechuan, Whole
+Pepper, White Ground
+Pepper, White, Whole
+Peppers, Habanero Whole
+Peppers, Jalapeno Whole
+Peppers, Red, Chopped
+Peppers, Red, Whole
+Pesto
+Poppy Seed, Whole
+Potato, Baker – Russet
+Potatoes, Idaho, large
+Poultry Seasoning
+Pumpkin Pie Seasoning Mix
+Rosemary
+Rosemary, Ground
+Rosemary, Whole Leaf
+Saffron, Whole
+Sage
+Sage, Rubbed
+Salt
+Salt, Kosher
+Salt, Kosher Flake
+Salt, Regular
+Salt, Seasoning
+Savory, Ground
+Sesame Seed, Whole
+Shallots
+Smoked Paprika
+Soy Sauce
+Spinach, fresh
+Strawberries
+Sugar, Brown, Dark
+Sugar, Brown, Light
+Sugar, Granulated
+Sugar, Powdered
+Sugar, Raw
+Sugar, Turbinado
+Tarragon
+Tarragon, Ground
+Tarragon, Whole Leaf
+Thyme, Ground
+Thyme, Whole Leaf
+Tomato Paste
+Turmeric, Powder
+Vanilla Bean Paste
+Vanilla Extract
+Vinegar, Apple Cider
+Vinegar, Rice, unseasoned
+Wasabi Powder
+Watercress
+Whipping Cream
+Yeast - Active
+Yogurt, Greek
+SELECT * FROM Rec_Ingred WHERE Rec_ID = 2;
+Rec_ID  |  Ing_ID  |  Rec_Ing_Qty  |  Unit_ID
+2  |  22  |  8.0  |  7
+2  |  71  |  12.0  |  1
+2  |  102  |  1.0  |  9
+2  |  105  |  2.0  |  9
+SELECT Ing_Name,Rec_Ing_Qty,Unit_Name
+FROM Rec_Ingred,Ingredient,Unit
+WHERE Rec_Ingred.Ing_Id = Ingredient.Ing_Id
+AND Rec_Ingred.Unit_Id = Unit.Unit_Id
+AND Rec_ID = 2;
+Ing_Name  |  Rec_Ing_Qty  |  Unit_Name
+Butter  |  8.0  |  tablespoon
+Eggs, Large, Whole (in shell)  |  12.0  |  pieces
+Milk  |  1.0  |  cup
+Mozzarella Cheese  |  2.0  |  cup
+INSERT INTO Rec_Ingred(Rec_ID, Ing_ID, Rec_Ing_Qty, Unit_id)
+VALUES (2, 32, 48, 2);
+UPDATE Rec_Ingred SET Rec_Ing_Qty = 2, Unit_ID = 2
+WHERE Rec_ID = 2
+AND Ing_ID = 32;
+DELETE FROM Rec_Ingred
+WHERE Rec_ID= 2
+AND Ing_ID = 32;
+SELECT Unit_Name FROM Unit;
+Unit_Name
+pieces
+milliliters
+liters
+grams
+kilograms
+teaspoon
+tablespoon
+fluid ounce
+cup
+pint
+quart
+gallon
+ounce
+pound
+SELECT * FROM Unit WHERE Unit_Name = "pound";
+Unit_ID  |  Unit_Type_ID  |  Unit_Name  |  Unit_Abbrev  |  Unit_Convfactor
+14  |  3  |  pound  |  lbm  |  453.592
+SELECT Ing_Id FROM Ingredient WHERE Ing_Name = "Wasabi Powder";
+Ing_ID
+182
+SELECT  Ing.Ing_Name,
+SUM(ROUND(
+  CASE WHEN UP.Unit_Type_ID = UR.Unit_Type_ID
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*RI.REC_ING_QTY*UR.Unit_Convfactor/UP.Unit_Convfactor)
+
+  WHEN UP.Unit_Type_ID = 1 AND UR.Unit_Type_ID = 3
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*(RI.REC_ING_QTY*UR.Unit_Convfactor*Ing.Ing_Density)/Ing.Ing_Unit_Wt)
+
+  WHEN UP.Unit_Type_ID = 1 AND UR.Unit_Type_ID = 3
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*(RI.REC_ING_QTY*UR.Unit_Convfactor)/Ing.Ing_Unit_Wt)
+
+  WHEN UP.Unit_Type_ID = 2 AND UR.Unit_Type_ID = 1
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*(RI.REC_ING_QTY*Ing.Ing_Unit_Wt/Ing.Ing_Density)/UP.Unit_Convfactor)
+
+  WHEN UP.Unit_Type_ID = 2 AND UR.Unit_Type_ID = 2
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*(RI.REC_ING_QTY*UR.Unit_Convfactor/Ing.Ing_Density)/UP.Unit_Convfactor)
+
+  WHEN UP.Unit_Type_ID = 3 AND UR.Unit_Type_ID = 1
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*RI.REC_ING_QTY*Ing.Ing_Unit_Wt/UP.Unit_Convfactor)
+
+  WHEN UP.Unit_Type_ID = 3 AND UR.Unit_Type_ID = 2
+  THEN (ROUND(.4999+CAST(M.Ev_Rec_Servings_Req AS REAL)/CAST(R.Rec_Servings_Made AS REAL),0)*(RI.REC_ING_QTY*UR.Unit_Convfactor*Ing.Ing_Density)/UP.Unit_Convfactor)
+
+  ELSE "Bad Code"
+  END,2)) AS QtyReqd,
+  UP.Unit_Abbrev AS PurchaseUnits
+FROM Ingredient AS Ing
+JOIN Unit       AS UP ON UP.Unit_ID = Ing.Ing_Purchase_Unit_ID
+JOIN Rec_Ingred AS RI ON Ing.Ing_ID = RI.Ing_ID
+JOIN Unit       AS UR ON RI.Unit_ID = UR.Unit_ID
+JOIN Recipe     AS R  ON RI.Rec_ID =R.Rec_ID
+JOIN Menu       AS M  ON R.Rec_ID = M.Rec_ID
+JOIN Event      AS E  ON M.Ev_ID = E.Ev_ID
+JOIN List       AS L  ON E.List_ID = L.List_ID
+WHERE L.List_ID = "1"
+ GROUP BY Ing.Ing_ID
+ ORDER BY Ing.Cat_ID ASC;
+Ing_Name  |  QtyReqd  |  PurchaseUnits
+Eggs, Large, Whole (in shell)  |  18.0  |  pcs
+Milk  |  0.19  |  gal
+Cocoa Powder, Dutch Processed (Alkali)  |  0.57  |  lbm
+Flour, All Purpose  |  6.61  |  lbm
+Sugar, Granulated  |  2.65  |  lbm
